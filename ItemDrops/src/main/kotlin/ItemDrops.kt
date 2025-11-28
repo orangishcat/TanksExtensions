@@ -9,6 +9,9 @@ class ItemDrops : Extension("item_drops") {
     override fun setUp() {
         Game.registerObstacle(ObstacleItemDrop::class.java, "item_drop")
         Game.registerMetadataSelector("item", SelectorItem::class.java)
+    }
+
+    override fun loadResources() {
         registerImage("item.png")
     }
 

@@ -51,10 +51,10 @@ class ObstacleItemDrop(name: String, x: Double, y: Double) : Obstacle(name, x, y
                 for (i in 0..8) {
                     posZ = max(
                         posZ,
-                        Game.sampleGroundHeight(posX + Direction.X[i] * s, posY + Direction.Y[i] * s)
+                        Game.sampleTerrainGroundHeight(posX + Direction.X[i] * s, posY + Direction.Y[i] * s)
                     )
                 }
-                posZ = max(posZ, Game.sampleGroundHeight(posX, posY))
+                posZ = max(posZ, Game.sampleTerrainGroundHeight(posX, posY))
             }
 
             Drawing.drawing.drawImage("item.png", posX, posY, posZ, sizeBag, sizeBag)

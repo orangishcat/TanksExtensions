@@ -1,4 +1,4 @@
-name: Build fat JAR
+name: Build ItemDrops jar
 
 on:
   push:
@@ -15,16 +15,19 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 8
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          build-root-directory: ItemDrops
 
-      - name: Build fat jar
+      - name: Build jar
         run: ./gradlew build
+        working-directory: ItemDrops
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ItemDrops-0.1.0.jar
-          path: build/libs/ItemDrops-0.1.0.jar
+          path: ItemDrops/build/libs/ItemDrops-0.1.0.jar
